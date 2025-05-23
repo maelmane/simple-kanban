@@ -13,12 +13,14 @@ A responsive Kanban board application built with Next.js and Tailwind CSS that a
 ## Technologies Used
 * Next.js (React framework)
 
-* Tailwind CSS (utility-first CSS framework)
+* [Tailwind CSS (utility-first CSS framework)](https://tailwindcss.com/)
 
 * JavaScript
 
-* Framer Motion
-
+* [Framer Motion](https://www.npmjs.com/package/framer-motion)
+  
+* [react-canvas-confetti](https://www.npmjs.com/package/react-canvas-confetti)
+  
 * Local storage
 
 ## Getting Started
