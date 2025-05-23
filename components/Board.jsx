@@ -18,7 +18,7 @@ export const Board = () => {
   }, []);
 
   return (
-    <div className="flex h-full w-full gap-3 overflow-scroll p-12">
+    <div className="flex h-full w-full gap-3 overflow-scroll p-12 flex-col lg:flex-row">
       <Column
         title="Backlog"
         headingColour="text-neutral-500"
