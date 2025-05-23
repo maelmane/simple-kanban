@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { motion } from "motion/react";
 
@@ -15,7 +15,20 @@ export default function Home() {
 }
 
 const Board = () => {
-  const [cards, setCards] = useState(DEFAULT_CARDS);
+  const [cards, setCards] = useState([]);
+  const [hasChecked, setHasChecked] = useState(false);
+
+  useEffect(() => {
+    hasChecked && localStorage.setItem("cards", JSON.stringify(cards));
+  }, [cards]);
+
+  useEffect(() => {
+    const cardsData = localStorage.getItem("cards");
+
+    setCards(cardsData ? JSON.parse(cardsData) : []);
+    setHasChecked(true)
+  }, []);
+
   return (
     <div className="flex h-full w-full gap-3 overflow-scroll p-12">
       <Column
@@ -214,7 +227,6 @@ const DeleteSection = ({ setCards }) => {
 
   const handleDragEnd = (e) => {
     const cardId = e.dataTransfer.getData("cardId");
-    console.log(cardId);
 
     setCards((prev) => prev.filter((c) => c.id !== cardId));
     setActive(false);
